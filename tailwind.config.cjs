@@ -21,7 +21,8 @@ module.exports = {
         "danger-red":"#F93C65",
         "#606060":"#606060",
         "#FFEEDB":"#FFEEDB",
-        "light-border": "#E5E8E8"
+        "light-border": "#E5E8E8",
+        "link-color": "#7C5EF2"
       },
       backgroundColor: {
         "header-primary": "#0687EF",

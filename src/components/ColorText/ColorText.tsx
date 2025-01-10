@@ -8,7 +8,7 @@ type ColoredTextType = {
 const ColoredText = ({ text, className, onClick }: ColoredTextType) => {
     return (
         <span
-            className={`${className} font-[700] text-large text-main-orange text-center`}
+            className={`${className} font-[700] text-large text-link-color text-center`}
             onClick={onClick} 
         >
             {text}

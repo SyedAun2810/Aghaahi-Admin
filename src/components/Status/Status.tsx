@@ -25,7 +25,7 @@ const Status = ({ active }: { active: boolean }) => {
                         margin: "auto"
                     }}
                 >
-                    Expired
+                    In-Active
                 </div>
             )}
         </>

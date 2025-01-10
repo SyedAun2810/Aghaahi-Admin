@@ -4,6 +4,7 @@ import { SelectInput } from "@Components/SelectInput";
 import FilterButton from "@Components/FilterButton/FilterButton";
 import { BANNER_STATUS_OPTIONS, BANNER_TYPES } from "@Constants/app";
 import CustomDatePicker from "@Components/DateRangePicker/DateRangePicker";
+import CustomSearch from "@Components/CustomSearch/CustomSearch";
 
 type ListingFiltersType = {
     endDate: Dayjs | null;
@@ -38,19 +39,10 @@ export default function ListingFilters({
 
     return (
         <div className="grid xl:grid-cols-1 2xl:grid-cols-2 border-bottom py-4">
-            <div></div>
+            <div><CustomSearch debounceSearch={() => {}}/></div>
             <div className=" mt-3 2xl:mt-0">
                 <div className="flex justify-end md:flex-row flex-col">
-                    <div className="flex">
-                        <SelectInput
-                            options={BANNER_STATUS_OPTIONS}
-                            onChange={(value) => typeStatusUpdateHandler(value, false)}
-                            placeholder={"Status"}
-                            className="ml-2 shrink-0 flex-grow"
-                            value={selectedStatus}
-                        />
-                    </div>
-                    {/* <div className="flex mt-3 md:mt-0">
+                    <div className="flex mt-3 md:mt-0">
                         <CustomDatePicker
                             endDate={endDate}
                             startDate={startDate}
@@ -63,7 +55,7 @@ export default function ListingFilters({
                             className={"ml-2 cursor-pointer shrink-0 flex-grow"}
                             onClick={clearFilter}
                         />
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>

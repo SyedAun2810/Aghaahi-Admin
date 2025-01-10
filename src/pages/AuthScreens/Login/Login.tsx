@@ -14,7 +14,7 @@ const Login = () => {
     return (
         <Flex vertical justify="center" className="px-20 h-screen">
             <AuthHeader
-                headerTitle="Login to Seller Account"
+                headerTitle="Login to Admin Account"
                 subTitle="Please enter your email and password to continue"
             />
             <Form
@@ -51,14 +51,6 @@ const Login = () => {
                     />
                 </Form.Item>
             </Form>
-            <p className="text-center text-#202224 text-large font-[500]">
-                Don’t have an account?{" "}
-                <ColoredText
-                    text={"Create Account"}
-                    onClick={handleSignUp}
-                    className="underline cursor-pointer"
-                />
-            </p>
         </Flex>
     );
 };

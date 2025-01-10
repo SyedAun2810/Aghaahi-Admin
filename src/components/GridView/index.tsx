@@ -71,7 +71,7 @@ const GridView: React.FC<propParams> = (props) => {
                         total={totalCount}
                         pageSize={props?.pageSize}
                         // showSizeChanger={true}
-                        hideOnSinglePage={false}
+                        // hideOnSinglePage={false}
                         // itemRender={itemRender}
                         onChange={props?.onPaginate}
                         current={selectedPage as number}

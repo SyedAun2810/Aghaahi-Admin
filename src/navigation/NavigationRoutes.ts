@@ -25,6 +25,8 @@ export const NavigationRoutes = {
     BANNER_MANAGEMENT_DETAILS:"/banner-ad-management/banner-details",
     REQUEST_BANNER:"/banner-ad-management/request-banner",
     CHANGE_PASSWORD:"change-password",
-    EDIT_PROFILE:"edit-profile"
+    EDIT_PROFILE:"edit-profile",
+    USER_MANAGEMENT:"/user-management",
+    REQUEST_MANAGEMENT:"/request-management",
   },
 };

@@ -12,7 +12,7 @@ import {
     ProductManagement,
     ProductDetails,
     AddProduct,
-    BannerManagement,
+    UserManagement,
     RequestBanner,
     ChangePassword,
     EditProfile,
@@ -20,83 +20,89 @@ import {
     GenerateLabels
 } from "./LazyImports";
 import { useEffect } from "react";
+import RequestManagement from "@Pages/AppScreens/RequestManagement";
 
 const DashboardRoutes = [
+    // {
+    //     title: "Dashboard",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.DASHBOARD,
+    //     component: <Dashboard />
+    // },
+    // {
+    //     title: "MyEarnings",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.MY_EARNINGGS,
+    //     component: <MyEarnings />
+    // },
+    // {
+    //     title: "Chat",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.CHAT,
+    //     component: <Chat />
+    // },
+    // {
+    //     title: "ChatDetails",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.CHAT_DETAILS,
+    //     component: <Chat />
+    // },
+    // {
+    //     title: "OrderManagement",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.ORDER_MANAGEMENT,
+    //     component: <OrderManagement />
+    // },
+    // {
+    //     title: "OrderDetails",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.ORDER_DETAILS,
+    //     component: <OrderDetails />
+    // },
+    // {
+    //     title: "GenerateLabels",
+    //     path: `${NavigationRoutes.DASHBOARD_ROUTES.GENERATE_LABELS_MAIN}/:id`,
+    //     component: <GenerateLabels />
+    // },
+    // {
+    //     title: "PaymentDetails",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.PAYMENT_DETAILS,
+    //     component: <PaymentDetails />
+    // },
+    // {
+    //     title: "ProductManagement",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.PRODUCT_MANAGEMENT,
+    //     component: <ProductManagement />
+    // },
+    // {
+    //     title: "ProductDetails",
+    //     path: `${NavigationRoutes.DASHBOARD_ROUTES.PRODUCT_DETAILS}/:id`,
+    //     component: <ProductDetails />
+    // },
+    // {
+    //     title: "AddProduct",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.ADD_PRODUCT,
+    //     component: <AddProduct />
+    // },
+    // {
+    //     title: "ProductEdit",
+    //     path: `${NavigationRoutes.DASHBOARD_ROUTES.PRODUCT_EDIT}/:id`,
+    //     component: <AddProduct />
+    // },
     {
-        title: "Dashboard",
-        path: NavigationRoutes.DASHBOARD_ROUTES.DASHBOARD,
-        component: <Dashboard />
+        title: "UserManagement",
+        path: NavigationRoutes.DASHBOARD_ROUTES.USER_MANAGEMENT,
+        component: <UserManagement />
     },
     {
-        title: "MyEarnings",
-        path: NavigationRoutes.DASHBOARD_ROUTES.MY_EARNINGGS,
-        component: <MyEarnings />
+        title: "RequestManagement",
+        path: NavigationRoutes.DASHBOARD_ROUTES.REQUEST_MANAGEMENT,
+        component: <RequestManagement/>
     },
-    {
-        title: "Chat",
-        path: NavigationRoutes.DASHBOARD_ROUTES.CHAT,
-        component: <Chat />
-    },
-    {
-        title: "ChatDetails",
-        path: NavigationRoutes.DASHBOARD_ROUTES.CHAT_DETAILS,
-        component: <Chat />
-    },
-    {
-        title: "OrderManagement",
-        path: NavigationRoutes.DASHBOARD_ROUTES.ORDER_MANAGEMENT,
-        component: <OrderManagement />
-    },
-    {
-        title: "OrderDetails",
-        path: NavigationRoutes.DASHBOARD_ROUTES.ORDER_DETAILS,
-        component: <OrderDetails />
-    },
-    {
-        title: "GenerateLabels",
-        path: `${NavigationRoutes.DASHBOARD_ROUTES.GENERATE_LABELS_MAIN}/:id`,
-        component: <GenerateLabels />
-    },
-    {
-        title: "PaymentDetails",
-        path: NavigationRoutes.DASHBOARD_ROUTES.PAYMENT_DETAILS,
-        component: <PaymentDetails />
-    },
-    {
-        title: "ProductManagement",
-        path: NavigationRoutes.DASHBOARD_ROUTES.PRODUCT_MANAGEMENT,
-        component: <ProductManagement />
-    },
-    {
-        title: "ProductDetails",
-        path: `${NavigationRoutes.DASHBOARD_ROUTES.PRODUCT_DETAILS}/:id`,
-        component: <ProductDetails />
-    },
-    {
-        title: "AddProduct",
-        path: NavigationRoutes.DASHBOARD_ROUTES.ADD_PRODUCT,
-        component: <AddProduct />
-    },
-    {
-        title: "ProductEdit",
-        path: `${NavigationRoutes.DASHBOARD_ROUTES.PRODUCT_EDIT}/:id`,
-        component: <AddProduct />
-    },
-    {
-        title: "BannerManagement",
-        path: NavigationRoutes.DASHBOARD_ROUTES.BANNER_MANAGEMENT,
-        component: <BannerManagement />
-    },
-    {
-        title: "BannerDetails",
-        path: `${NavigationRoutes.DASHBOARD_ROUTES.BANNER_MANAGEMENT_DETAILS}/:id`,
-        component: <BannerManagementDetails />
-    },
-    {
-        title: "RequestBanner",
-        path: NavigationRoutes.DASHBOARD_ROUTES.REQUEST_BANNER,
-        component: <RequestBanner />
-    },
+    // {
+    //     title: "BannerDetails",
+    //     path: `${NavigationRoutes.DASHBOARD_ROUTES.BANNER_MANAGEMENT_DETAILS}/:id`,
+    //     component: <BannerManagementDetails />
+    // },
+    // {
+    //     title: "RequestBanner",
+    //     path: NavigationRoutes.DASHBOARD_ROUTES.REQUEST_BANNER,
+    //     component: <RequestBanner />
+    // },
     {
         title: "ChangePassword",
         path: NavigationRoutes.DASHBOARD_ROUTES.CHANGE_PASSWORD,
@@ -112,11 +118,11 @@ const DashboardRoutes = [
 const Authenticated = () => {
     const { isAuth } = useAuthStore();
     const NAVIGATE_TO = isAuth
-        ? NavigationRoutes.DASHBOARD_ROUTES.DASHBOARD
+        ? NavigationRoutes.DASHBOARD_ROUTES.USER_MANAGEMENT
         : NavigationRoutes.AUTH_ROUTES.LOGIN;
 
     useEffect(() => {
-        document.title = "Dashbaord - Seller Look Who's Outdoor";
+        document.title = "User-Management - Admin-Aghaahi";
     }, []);
 
     return (

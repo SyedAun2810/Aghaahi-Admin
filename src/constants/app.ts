@@ -386,12 +386,12 @@ export const BANNER_TYPES = [
 
 export const BANNER_STATUS_OPTIONS = [
   {
-      value: "Hide",
-      label: "Hidden"
+      value: "active",
+      label: "Active"
   },
   {
-      value: "Unhide",
-      label: "Visible"
+      value: "inactive",
+      label: "In-Active"
   }
 ];
 

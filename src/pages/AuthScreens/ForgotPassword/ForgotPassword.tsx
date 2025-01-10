@@ -33,7 +33,7 @@ const ForgotPassword = () => {
                 </Form.Item>
             </Form>
             <ColoredText
-                text={"Go back to seller login"}
+                text={"Go back to admin login"}
                 onClick={handleLogin}
                 className="underline cursor-pointer"
             />

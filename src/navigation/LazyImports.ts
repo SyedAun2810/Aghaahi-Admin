@@ -32,8 +32,8 @@ const PaymentDetails = lazy(
 const ProductDetails = lazy(() => import("@Pages/AppScreens/ProductManagement/ProductDetails/ProductDetails"))
 const AddProduct = lazy(() => import("@Pages/AppScreens/ProductManagement/AddEditProduct/AddProduct"))
 
-const BannerManagement = lazy(
-  () => import("@Pages/AppScreens/BannerManagement/BannerManagement")
+const UserManagement = lazy(
+  () => import("@Pages/AppScreens/BannerManagement/UserManagement")
 );
 
 const BannerManagementDetails = lazy(
@@ -61,7 +61,7 @@ export {
     PaymentDetails,
     ChangePassword,
     OrderManagement,
-    BannerManagement,
+    UserManagement,
     ProductManagement,
     ProductDetails,
     AddProduct,

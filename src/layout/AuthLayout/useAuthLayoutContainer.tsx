@@ -5,6 +5,6 @@ export const useAuthLayoutContainer = () => {
   const navigate = useNavigate();
 
   const route = location.pathname.split("/");
-  const selectedKey = route[1] ? route[1] : "seller-dashboard";
+  const selectedKey = route[1] ? route[1] : "user-management";
   return {  location, route, selectedKey , navigate};
 };
