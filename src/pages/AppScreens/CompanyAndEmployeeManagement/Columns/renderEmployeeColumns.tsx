@@ -1,21 +1,14 @@
-import { Link } from "react-router-dom";
-
+import React from "react";
 import Status from "@Components/Status/Status";
-import { PlanType } from "@Constants/app";
-import { NavigationRoutes } from "@Navigation/NavigationRoutes";
-import EditIcon from "@Assets/icons/editIcon.svg";
+import ActionIcon from "@Assets/icons/actionIcon.svg";
+import { AnyTxtRecord } from "node:dns";
 
-import DetailsIcon from "@Assets/icons/eyeDetailIcon.svg";
-import CustomSwitch from "@Components/CustomSwitch/CustomSwitch";
-
-type BannerColumnsType = {
-    onStatusUpdateClick: (id: number) => void;
-    handleReOrder: (id: number) => void;
+type EmployeeColumnsType = {
     handleUpdate: (id: number) => void;
     handleDelete: (id: number) => void;
 };
 
-export const renderBannerColumns = ({ onStatusUpdateClick, handleReOrder, handleUpdate, handleDelete }: BannerColumnsType) => [
+export const renderEmployeeColumns = ({ handleView, handleDelete }: any) => [
     {
         title: "ID",
         dataIndex: "id",
@@ -25,9 +18,9 @@ export const renderBannerColumns = ({ onStatusUpdateClick, handleReOrder, handle
         }
     },
     {
-        title: "Full Name",
-        dataIndex: "full_name",
-        key: "full_name",
+        title: "Name",
+        dataIndex: "name",
+        key: "name",
         render: (data: string) => {
             return <p>{data ?? "--"}</p>;
         }
@@ -45,13 +38,21 @@ export const renderBannerColumns = ({ onStatusUpdateClick, handleReOrder, handle
         dataIndex: "phone_number",
         key: "phone_number",
         render: (data: string, record: any) => {
-            return <p>{`${record.country_code} ${data}` ?? "--"}</p>;
+            return <p>{`${record.country_code || ""} ${data}`.trim() || "--"}</p>;
+        }
+    },
+    {
+        title: "Role",
+        dataIndex: "role",
+        key: "role",
+        render: (data: any) => {
+            return <p>{data?.name ?? "--"}</p>;
         }
     },
     {
         title: "Status",
-        dataIndex: "is_active",
-        key: "is_active",
+        dataIndex: "status",
+        key: "status",
         align: "center",
         render: (data: boolean) => {
             return <Status active={data} />;
@@ -63,16 +64,13 @@ export const renderBannerColumns = ({ onStatusUpdateClick, handleReOrder, handle
         align: "center",
         render: (data: any) => {
             return (
-
-
                 <div className="flex justify-center gap-2">
-                    <CustomSwitch isDisabled handleUpdate={handleUpdate} />
-                    <Link
-                        to={`${NavigationRoutes.DASHBOARD_ROUTES.UPSERT_ADMIN}/${data.id}`}
-                        className="text-large text-main-orange font-[500] cursor-pointer"
+                    <div
+                        onClick={() =>handleView(data?.id)}
+                        style={{ cursor: "pointer", display: "inline-block" }}
                     >
-                        <EditIcon className="ml-2" />
-                    </Link>
+                        <ActionIcon />
+                    </div>
                 </div>
             );
         }

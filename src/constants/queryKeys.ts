@@ -6,6 +6,9 @@ export const queryKeys = {
         resendOtp: ["RESEND_OTP"],
         verifyOtp: ["VERIFY_OTP"],
         resetPassword: ["RESET_PASSWORD"],
+        logout: ["LOGOUT"],
+        userDetails: ["USER_DETAILS"],
+        employeeDetails: ["EMPLOYEE_DETAILS"],
     },
     changePassword: ["CHANGE_PASSWORD"],
     productManagement: {

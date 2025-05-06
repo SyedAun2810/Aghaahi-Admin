@@ -21,11 +21,11 @@ const AppLayout = () => {
         updateUserData(data?.data);
     };
 
-    const { data: userData, isLoading: userDetailsLoading } = useUserDetail(onUserDetailsSuccess);
+    // const { data: userData, isLoading: userDetailsLoading } = useUserDetail(onUserDetailsSuccess);
 
     // update online status for socket
     const { mutate: updateOnlineStatus } = useUpdateOnlineStatus();
-    const { data: unreadMsgsCount } = useGetUnreadMsgsCount();
+    // const { data: unreadMsgsCount } = useGetUnreadMsgsCount();
     const { chatToken, userData: user } = useAuthStore.getState();
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const AppLayout = () => {
                             padding: 0
                         }}
                     >
-                        <AppHeader chatUnreadMessagesCount={unreadMsgsCount} />
+                        <AppHeader chatUnreadMessagesCount={0} />
                     </Header>
                     <Content
                         style={{

@@ -169,3 +169,5 @@ const ApiService: any = {
 };
 
 export default ApiService;
+
+export const baseURL =  import.meta.env.VITE_APP_API_URL;

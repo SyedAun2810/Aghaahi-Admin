@@ -41,13 +41,13 @@ const useAuthStore = create<StoreState & StoreAction>()(
   persist(
     (set) => ({
       ...initialState,
-      setUserAuthentication: (payload: LoginResponse) =>
+      setUserAuthentication: (payload: any) =>
         set(() => ({
           isAuth: true,
           accessToken: payload?.token,
           chatToken: payload?.chatToken,
           refreshToken: payload?.refreshToken,
-          // userData: payload.user,
+          userData: payload?.admin,
         })),
       removeUserAuthentication: () =>
         set(() => ({

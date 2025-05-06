@@ -90,6 +90,21 @@ export const API_CONFIG_URLS = {
     LISTING: `/notifications`,
     UPDATE_STATUS: `/notifications/toggle-status`,
     COUNT: `/notifications/count`
+  },
+  ADMIN: {
+    LOGIN: `/admin/login`,
+    LOGOUT: `/admin/logout`,
+    ME: `/admin/me`,
+    UPDATE_ME: `/admin/me`,
+    CREATE_ADMIN: `/admin/admin`,
+    GET_ADMINS: `/admin/admin`,
+    GET_ADMIN_BY_ID: `/admin`,
+    DELETE_ADMIN: `/admin/{adminId}`,
+    UPDATE_ADMIN: `/admin/{adminId}/update`
+  },
+  COMPANY: {
+    listing: `admin/company`,
+    employee_listing : `admin/employee`,
   }
 };
 

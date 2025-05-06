@@ -1,26 +1,19 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { NavigationRoutes } from "./NavigationRoutes";
-import useAuthStore from "@Store/authStore";
 import AppLayout from "@Layout/AuthLayout/AuthLayout";
+import AddOrUpdateAdmin from "@Pages/AppScreens/BannerManagement/AddOrUpdateAdmin";
+import UserDetails from "@Pages/AppScreens/BannerManagement/userDetails";
+import CompanyListing from "@Pages/AppScreens/CompanyAndEmployeeManagement/companyListing";
+import ViewEmployeeDetails from "@Pages/AppScreens/CompanyAndEmployeeManagement/EmployeeDetail";
+import EmployeeListing from "@Pages/AppScreens/CompanyAndEmployeeManagement/employeeListing";
+import RequestManagement from "@Pages/AppScreens/RequestManagement";
+import useAuthStore from "@Store/authStore";
+import { useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import {
-    Chat,
-    Dashboard,
-    OrderDetails,
-    OrderManagement,
-    PaymentDetails,
-    MyEarnings,
-    ProductManagement,
-    ProductDetails,
-    AddProduct,
-    UserManagement,
-    RequestBanner,
     ChangePassword,
     EditProfile,
-    BannerManagementDetails,
-    GenerateLabels
+    UserManagement
 } from "./LazyImports";
-import { useEffect } from "react";
-import RequestManagement from "@Pages/AppScreens/RequestManagement";
+import { NavigationRoutes } from "./NavigationRoutes";
 
 const DashboardRoutes = [
     // {
@@ -89,9 +82,34 @@ const DashboardRoutes = [
         component: <UserManagement />
     },
     {
+        title: "UserManagement",
+        path: `${NavigationRoutes.DASHBOARD_ROUTES.USER_MANAGEMENT}/:id`,
+        component: <UserDetails />
+    },
+    {
+        title: "UserManagement",
+        path: `${NavigationRoutes.DASHBOARD_ROUTES.UPSERT_ADMIN}/:id`,
+        component: <AddOrUpdateAdmin />
+    },
+    {
+        title: "UserManagement",
+        path: `${NavigationRoutes.DASHBOARD_ROUTES.UPSERT_ADMIN}`,
+        component: <AddOrUpdateAdmin />
+    },
+    {
         title: "RequestManagement",
         path: NavigationRoutes.DASHBOARD_ROUTES.REQUEST_MANAGEMENT,
-        component: <RequestManagement/>
+        component: <RequestManagement />
+    },
+    {
+        title: "Company Management",
+        path: NavigationRoutes.DASHBOARD_ROUTES.COMPANY_LISTING,
+        component: <CompanyListing />
+    },
+    {
+        title: "Employee Management",
+        path: `${NavigationRoutes.DASHBOARD_ROUTES.EMPLOYEE_MANAGEMENT}/:id`,
+        component: <EmployeeListing />
     },
     // {
     //     title: "BannerDetails",
@@ -112,14 +130,21 @@ const DashboardRoutes = [
         title: "EditProfile",
         path: NavigationRoutes.DASHBOARD_ROUTES.EDIT_PROFILE,
         component: <EditProfile />
+    },
+    {
+        title: "EmployeeDetails",
+        path: `${NavigationRoutes.DASHBOARD_ROUTES.EMPLOYEE_DETAILLS}/:id`,
+        component: < ViewEmployeeDetails />
     }
 ];
 
 const Authenticated = () => {
-    const { isAuth } = useAuthStore();
+    const { isAuth, userData } = useAuthStore();
+    let role = userData?.role || 0;
+
+    let route = role === 1 ? NavigationRoutes.DASHBOARD_ROUTES.USER_MANAGEMENT : NavigationRoutes.DASHBOARD_ROUTES.COMPANY_LISTING
     const NAVIGATE_TO = isAuth
-        ? NavigationRoutes.DASHBOARD_ROUTES.USER_MANAGEMENT
-        : NavigationRoutes.AUTH_ROUTES.LOGIN;
+        ? route : NavigationRoutes.AUTH_ROUTES.LOGIN;
 
     useEffect(() => {
         document.title = "User-Management - Admin-Aghaahi";
